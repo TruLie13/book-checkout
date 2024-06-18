@@ -14,9 +14,9 @@ type book struct {
 }
 
 var books = []book{
-	{ID: "1", Title: "In Search of Lost Time", Author: "Marcel Proust", Quantity: 2},
-	{ID: "2", Title: "The Great Gatsby", Author: "F. Scott Fitzgerald", Quantity: 5},
-	{ID: "3", Title: "War and Peace", Author: "Leo Tolstoy", Quantity: 6},
+	{ID: "1", Title: "The Worshipper of the Image", Author: "Richard Le Gallienne", Quantity: 2},
+	{ID: "2", Title: "The Voice at 3:00 A.M", Author: "Charles Simic", Quantity: 5},
+	{ID: "3", Title: "The Night Circu", Author: "Erin Morgenstern", Quantity: 6},
 }
 
 func getBooks(c *gin.Context) {
@@ -44,7 +44,6 @@ func checkoutBook(c *gin.Context) {
 	}
 
 	book, err := getBookById(id)
-
 	if err != nil {
 		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Book not found."})
 		return
@@ -68,7 +67,6 @@ func checkinBook(c *gin.Context) {
 	}
 
 	book, err := getBookById(id)
-
 	if err != nil {
 		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Book not found."})
 		return
